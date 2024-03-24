@@ -22,7 +22,7 @@ app.post("/locs", (req, res) => {
   res.sendStatus(200);
 });
 
-app.get("/mobil-murah-jakarta", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.resolve("index.html"));
 });
 
