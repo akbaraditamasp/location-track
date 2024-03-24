@@ -18,7 +18,11 @@
               Accept: "application/json",
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ lat: latitude, long: longitude }),
+            body: JSON.stringify({
+              lat: latitude,
+              long: longitude,
+              time: new Date().toISOString(),
+            }),
           });
         });
       } else {

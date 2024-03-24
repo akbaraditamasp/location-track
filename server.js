@@ -2,6 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const path = require("path");
+const moment = require("moment-timezone");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.post("/locs", (req, res) => {
   locs.push({
     lat: req.body.lat,
     long: req.body.long,
+    time: moment(req.body.time).tz("Asia/Jakarta").format("DD-MM-YYYY HH:mm"),
   });
 
   fs.writeFileSync(path.resolve("location.json"), JSON.stringify(locs));
